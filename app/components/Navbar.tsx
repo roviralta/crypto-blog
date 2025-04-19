@@ -19,12 +19,18 @@ const Navbar = async () => {
 	const session = await auth()
 
 	return (
-		<div className='px-5 py-3 bg-black shadow-sm font-work-sans'>
+		<div className='px-5 py-3 bg-white shadow-sm body'>
 			<nav className='flex justify-between items-center'>
 				<Link href='/'>
-					<Image src='/logo.svg' alt='logo' width={70} height={30} />
+					<Image
+						className='rounded-full'
+						src='/logo.svg'
+						alt='logo'
+						width={70}
+						height={30}
+					/>
 				</Link>
-				<div className='flex items-center gap-5'>
+				<div className='flex items-center gap-5 text-white'>
 					{session && session.user ? (
 						<>
 							<Link href='/blog/create'>

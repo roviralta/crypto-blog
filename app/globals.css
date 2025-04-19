@@ -1,26 +1,58 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+	--background: #ffffff;
+	--foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@layer utilities {
+	.heading {
+		@apply text-center
+			uppercase
+			bg-gradient-to-r from-black via-gray-800 to-black
+			px-8 py-5
+			font-extrabold
+			tracking-wide
+			text-white
+			text-3xl leading-tight
+			sm:text-5xl sm:leading-tight
+			md:text-6xl md:leading-tight;
+	}
+
+	.body {
+		@apply bg-gradient-to-r from-black via-gray-800 to-black text-white;
+	}
+
+	.search-form {
+		@apply flex items-center gap-3 bg-white dark:bg-zinc-900 rounded-xl shadow px-4 py-2 w-full max-w-xl mx-auto mt-10;
+	}
+
+	.searchInput {
+		@apply flex-1 bg-transparent outline-none border-none text-zinc-400 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 text-base px-2 py-1;
+	}
+
+	.search-form button[type='reset'] {
+		@apply text-zinc-400 hover:text-red-500 transition-colors duration-150 rounded-full p-1 focus:outline-none focus:ring-2 focus:ring-red-400;
+		font-size: 1.25rem; /* For × icon sizing */
+		line-height: 1;
+	}
+
+	.search-btn {
+		@apply flex items-center justify-center
+      bg-white text-black
+      rounded-full
+      px-4 py-1
+      font-semibold
+      transition-colors duration-150
+      hover:bg-blue-700
+      focus:outline-none focus:ring-2 focus:ring-blue-400
+      shadow;
+		font-size: 1rem;
+		min-width: 2.5rem;
+		min-height: 2.5rem;
+	}
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+button:hover {
+	cursor: pointer;
 }
